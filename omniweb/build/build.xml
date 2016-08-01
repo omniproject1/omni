@@ -1,0 +1,65 @@
+<project name="omniweb" default="war" basedir="../">
+	<property name="src" location="${basedir}/src"/>
+	<property name="build" location="${basedir}/buildfiles"/>
+	<property name="buildclasses" location="${build}/classes"/>
+	<property name="omindata" location="${basedir}/../omindata/buildfiles/lib"/>
+		<property name="omnicore" location="${basedir}/../omnicore/buildfiles/lib"/>
+	<property name="corebuild" location="${basedir}/../omincore/build"/>
+	<property name="apachetomcat" location="${basedir}/../../../server/apache-tomcat-7.0.69/lib"/>	
+<property name="omindatalib" location="${basedir}/../omindata/lib"/>		
+	
+	<path id='compile.classpath'>
+		<fileset dir="${omindata}">
+			<include name='*.jar'/>
+		</fileset>
+		<fileset dir="${omnicore}">
+			<include name='*.jar'/>
+		</fileset>
+		<fileset dir="${apachetomcat}">
+			<include name='*.jar'/>
+		</fileset>
+		<fileset dir="${omindatalib}">
+			<include name='*.jar'/>
+		</fileset>
+	</path>	
+	
+	
+	<target name="init">
+		<tstamp/>
+		<mkdir dir="${build}"/>
+		<mkdir dir="${buildclasses}"/>		
+	</target>
+	
+	<target name="compile" depends="init">
+		<javac srcdir="${src}/com/omni/web" destdir="${buildclasses}">
+		<classpath refid="compile.classpath"/>
+		</javac>
+	</target>
+	
+	<!--target name="dist" depends ="compile">
+		<mkdir dir ="${build}/lib"/>
+			<jar jarfile="${build}/lib/ominweb.jar" basedir="${build}">
+		</jar>
+	</target-->
+
+	<target name ="war" depends ="compile">
+		<war destfile="dist/omniweb.war" webxml="${basedir}/WebContent/WEB-INF/web.xml">
+		<fileset dir="${basedir}/WebContent"/>
+		<lib dir="${basedir}/WebContent/WEB-INF/lib"/>
+		<lib dir="${omnicore}"/>
+		<lib dir="${omindata}"/>
+		<lib dir="${omindatalib}"/>
+		<classes dir ="${buildclasses}"/>
+		</war>		
+
+	</target>
+
+	<target name="clean">
+		<delete dir="${build}"/>
+		<delete dir="${dist}"/>
+	</target>
+
+
+	
+
+</project>

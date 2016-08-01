@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+<body>
+<form name="signin" action="/omniweb/omniwebServlet" method="POST">
+<fieldset>
+<legend>Personal Information</legend>
+<pre>
+First Name: <input type="text" name="firstname"><br>
+Last Name : <input type="text" name="lastname"><br>
+Gender    : <select name ="gender">
+       	<option value="Male">Male</option>
+	<option value="Female">Female</option>
+	<option value="Other">Other</option>
+	</select><br>
+</pre>
+</fieldset>
+
+<fieldset>
+<legend>Contact Imformation</legend>
+<pre>
+E-mail	  : <input type="text" name="email"><br>
+Address   : <input type="text" name="address" value= Apt_No..Street_Add><br>
+City      : <input type="text" name="city"><br>
+State     : <input type="text" name="state"><br>
+Zip-Code  : <input type="text" name="zipCode"><br>
+Home Phone: <input type="text" name="homePhone"><br>
+</pre>
+</fieldset>
+<br>
+Create a New User Name and Password
+<br>
+<pre>
+<b><I>User Name:</I></b> <input type="text" name="username"><br>
+<b><I>Password :</I></b> <input type="text" name="passowrd"><br>
+</pre>
+<input type="submit" value="Submit">
+<br>
+</form>
+</body>
+</html>

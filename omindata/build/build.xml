@@ -1,0 +1,41 @@
+<project name="omindata" default="dist" basedir="../">
+
+	<property name="src" location="${basedir}/src"/>
+	<property name="lib" location="${basedir}/lib"/>
+	<property name="build" location="${basedir}/buildfiles"/>
+	
+
+	<path id='compile.classpath'>
+		<fileset dir="${lib}">
+			<include name='*.jar'/>
+		</fileset>
+		
+
+	</path>
+	
+	<target name="init">
+		<tstamp/>
+		<mkdir dir="${build}"/>
+	</target>
+
+	<target name="compile" depends="init">
+		<javac srcdir="${src}/com/omni/data" destdir="${build}">
+			<classpath refid="compile.classpath"/>
+		</javac>
+	</target>
+
+	<target name="dist" depends ="compile">
+		<mkdir dir ="${build}/lib"/>
+		<jar jarfile="${build}/lib/omindata.jar" basedir="${build}">
+		</jar>
+	</target>
+
+	<target name="clean">
+		<delete dir="${build}"/>
+		<delete dir="${dist}"/>
+	</target>
+
+</project>
+		
+
+
