@@ -21,6 +21,7 @@ public class ConnectionFactory {
 		    //conn = DriverManager.getConnection("jdbc:mysql://localhost/test?","user=root&password=8120");
 		} catch (SQLException ex) {
 		    // handle any errors
+			System.out.println("SQLException: " + ex.getMessage());
 		    System.out.println("SQLException: " + ex.getMessage());
 		    System.out.println("SQLState: " + ex.getSQLState());
 		    System.out.println("VendorError: " + ex.getErrorCode());
