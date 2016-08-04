@@ -73,13 +73,13 @@ public class SigninDatabaseAdapter {
 	}
 
 	
-	public String addSub(SunInfoVO user) {
+	public String addSub(UserInfoDAO user) {
 		Connection conn =null;
 		String error=""; 
 		try {
 			conn=ConnectionFactory.getConnection();
-			SunInfoDAO dao = new SunInfoDAO(conn);
-			error = dao.addSub(user);			
+			UserInfoDAO dao = new UserInfoDAO(conn);
+			//error = dao.addSub(user);			
 		} catch (Exception ex){
 			ex.printStackTrace();
 			error = ex.getMessage();

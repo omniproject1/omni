@@ -1,6 +1,7 @@
-spackage com.omni.core;
+package com.omni.core;
 
 import com.omni.data.SigninDatabaseAdapter;
+import com.omni.data.vo.SunInfoVO;
 import com.omni.data.vo.UserInfoVO;
 
 public class UserInfoBusiness {
@@ -21,7 +22,7 @@ public class UserInfoBusiness {
 		String error = null;
 		// 1: check whether this user already exists in database
 		SigninDatabaseAdapter adapter = new SigninDatabaseAdapter();
-		error=adapter.addSub(userVo)
+		//error=adapter.addSub(userVo)
 		return error;
 	}
 }

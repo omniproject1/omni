@@ -1,4 +1,4 @@
-package com.omni.data;
+package com.omni.data.vo;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -7,7 +7,7 @@ import java.sql.ResultSet;
 
 import com.omni.data.vo.SunInfoVO;
 
-public class UserInfoDAO {
+public class SunInfoDAO {
 	
 	private Connection conn;
 	
@@ -21,7 +21,7 @@ public class UserInfoDAO {
         	String sql= "INSERT INTO sub_reg (username,passowrd,semester,branch,num_subjects,sub1,sub2,sub3,sub4,sub5) "
         			+ "values(?,?,?,?,?,?,?,?,?,?,?)";
         	PreparedStatement ps = conn.prepareStatement(sql);
-        	ps.setString(1, user.getUsertName());
+        	//ps.setString(1, user.getUsertName());
         	ps.setString(2, user.getPassowrd());
         	ps.setString(3, user.getSemester());
         	ps.setString(4, user.getBranch());
