@@ -18,9 +18,11 @@ pipeline {
             }
         }
         stage ('Clean the Repo'){
+            steps{
               sh 'cd mobilebanking'
               sh './gradlew clean'
               sh './gradlew assembleDeveloperDebug mobilebanking:assembleDeveloperDebugAndroidTest --stacktrace'
+            }
         }
 
     }
